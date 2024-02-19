@@ -12,6 +12,9 @@ resource "proxmox_lxc" "archlinux" {
   ssh_public_keys = <<-EOT
     ${var.ssh_public_key}
   EOT
+  features {
+    nesting = "true"
+  }
   rootfs {
     storage = var.storage_name
     size = var.disk_size
